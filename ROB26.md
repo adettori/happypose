@@ -6,11 +6,6 @@ During the dockerization process some issues popped up, in particular:
     - Need to specify weights_only=False in new versions of torch when using torch.load() for megapose to work as expected (9311f52)
     - Some parts of the mirrors for the BOP dataset used in the download script were no longer available, in these cases the instructions were updated to use the huggingface cmd utility to download the dataset (7cdebad)
 
-## Setup
-```
-
-```
-
 ## Inference
 Here are the instructions to reproduce the inference steps using both sub-packages of HappyPose
 
@@ -23,10 +18,11 @@ python -m happypose.toolbox.utils.download --cosypose_models \
           refiner-bop-ycbv-pbr--604090
 
 # move linemod example into dataset folder
+# bop toolkit info used to build example: https://github.com/ethz-asl/bop_toolkit/blob/main/docs/bop_datasets_format.md
 cp -r examples/eggs dataset/examples/
 
 # run example
-python -m happypose.pose_estimators.cosypose.cosypose.scripts.run_inference_on_example eggs --run-inference --run-detections --vis-detections --vis-poses
+python -m happypose.pose_estimators.cosypose.cosypose.scripts.run_inference_on_example eggs --dataset ycbv --run-inference --run-detections --vis-detections --vis-poses
 ```
 
 ### MegaPose
