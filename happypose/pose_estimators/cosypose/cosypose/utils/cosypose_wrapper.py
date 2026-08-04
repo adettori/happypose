@@ -79,6 +79,14 @@ AVAILABLE_MODELS = {
             "refiner_run_id": "refiner-bop-ycbv-synt+real--631598",
         },
     },
+    "lmo": {
+        "pbr": {
+            "detector_run_id": "detector-bop-lmo-pbr--517542",
+            "coarse_run_id": "coarse-bop-lmo-pbr--707448",
+            "refiner_run_id": "refiner-bop-lmo-pbr--325214",
+        },
+        "synth+real": {},  # no such model
+    },
 }
 
 

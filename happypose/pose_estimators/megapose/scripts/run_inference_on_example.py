@@ -69,6 +69,7 @@ if __name__ == "__main__":
         type=str,
         default="megapose-1.0-RGB",
     )
+    parser.add_argument("--detector", default="detector-bop-hope-pbr--15246")
     parser.add_argument("--run-detections", action="store_true")
     parser.add_argument("--run-inference", action="store_true")
     parser.add_argument("--vis-detections", action="store_true")
@@ -92,7 +93,7 @@ if __name__ == "__main__":
 
     if args.run_detections:
         # TODO: hardcoded detector
-        detector = load_detector(run_id="detector-bop-hope-pbr--15246", device=device)
+        detector = load_detector(run_id=args.detector, device=device)
         # Masks are not used for pose prediction, but are computed by Mask-RCNN anyway
         detections = detector.get_detections(observation, output_masks=True)
         available_labels = [obj.label for obj in object_dataset.list_objects]
